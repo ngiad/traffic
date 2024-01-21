@@ -1,21 +1,21 @@
-const dotenv = require('dotenv');
-const express = require('express');
-const next = require('next');
+const { default: mongoose } = require("mongoose");
+const start = require("./app");
+const PORT = process.env.PORT || 5656;
 
-dotenv.config()
-const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev });
-const handle = app.getRequestHandler();
+const server = start(PORT)
 
-app.prepare().then(() => {
-    const server = express();
-
-    server.all('*', (req, res) => {
-        return handle(req, res);
-    });
-
-    server.listen(3000, (err) => {
-        if (err) throw err;
-        console.log('> Ready on http://localhost:3000');
-    });
-});
+process.on("SIGINT",async() => {
+    console.log("\nReceived SIGINT. Closing server and disconnecting from MongoDB...");
+    try {
+      await server.close();
+      console.log("Express server closed.");
+      
+      await mongoose.disconnect();
+      console.log("MongoDB connection closed.");
+      
+      process.exit(0);
+    } catch (err) {
+      console.error("Error during shutdown:", err);
+      process.exit(1);
+    }
+  })
