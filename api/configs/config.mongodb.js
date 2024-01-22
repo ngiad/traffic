@@ -16,7 +16,7 @@ const production = {
     db : {
         host : process.env.PRO_DB_HOST || "localhost",
         port : process.env.PRO_DB_PORT || 27017,
-        name : process.env.PRO_DB_NAME || "devdb"
+        name : process.env.PRO_DB_NAME || "traffic"
     }
 } 
 
