@@ -7,7 +7,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const cors = require('cors')
-
+const cookieParser = require('cookie-parser')
 
 dotenv.config()
 const dev = process.env.NODE_ENV !== 'production';
@@ -24,6 +24,7 @@ function start(port) {
         //     stream: fs.createWriteStream(path.join(__dirname, './message/access.log'), { flags: 'a' })
         // }))
         server.use(bodyParser.json())
+        server.use(cookieParser())
         server.use(compression())
         server.use(cors('*'))
 

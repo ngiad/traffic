@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "../assets/globals.css";
 
 import ReduxProvider from "@/components/Providers/Redux";
+import Cookies from "@/components/Providers/Cookies";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,6 +13,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <Cookies>
     <ReduxProvider>
       <html lang="en">
         <body className={inter.className}>
@@ -19,5 +21,6 @@ export default function RootLayout({ children }) {
         </body>
       </html>
     </ReduxProvider>
+    </Cookies>
   );
 }
