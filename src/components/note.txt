@@ -1,0 +1,2 @@
+luôn luôn thêm "use client" ở đầu file jsx 
+nếu trùng lặp code thì nên viết 1 custom hook hoặc useReducer
