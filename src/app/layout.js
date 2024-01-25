@@ -4,6 +4,7 @@ import "../assets/styles/globals.css";
 import ReduxProvider from "@/components/Providers/Redux";
 import Cookies from "@/components/Providers/Cookies";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
