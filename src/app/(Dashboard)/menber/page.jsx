@@ -1,9 +1,9 @@
 import style from "../../../assets/styles/menber.module.css"
-const Menber = () => {
+const menber = () => {
   return (
-    <div className={style["main-test"]}>Menber</div>
+    <div className={style["main-test"]}>menber</div>
   )
 }
 
 
-export default Menber
+export default menber
