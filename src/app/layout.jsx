@@ -1,6 +1,5 @@
 import { Inter } from "next/font/google";
-import "../assets/globals.css";
-
+import "../assets/styles/globals.css";
 import ReduxProvider from "@/components/Providers/Redux";
 import Cookies from "@/components/Providers/Cookies";
 
@@ -14,13 +13,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <Cookies>
-    <ReduxProvider>
-      <html lang="en">
-        <body className={inter.className}>
-          {children}
-        </body>
-      </html>
-    </ReduxProvider>
+      <ReduxProvider>
+        <html lang="en">
+          <body className={inter.className}>{children}</body>
+        </html>
+      </ReduxProvider>
     </Cookies>
   );
 }
