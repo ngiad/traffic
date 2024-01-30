@@ -5,7 +5,7 @@ const DOCUMENT_NAME = 'order'
 
 
 const orderShema = mongoose.Schema({
-    ofbuyer: {
+    buyerId: {
         type: mongoose.Types.ObjectId,
         required: true
     },
