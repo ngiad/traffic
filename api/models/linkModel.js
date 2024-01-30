@@ -13,12 +13,13 @@ const linkShema = mongoose.Schema({
     },
     type : {
         type : String,
-        enum : ['short','traffic'],
+        enum : ['short','traffic','note'],
         required : true
     },
     status : {
         type : String,
-        default : 'pending'
+        enum : ['work','lock'],
+        default : 'work'
     },
     report : {
         type : Number
@@ -33,6 +34,9 @@ const linkShema = mongoose.Schema({
     countout : {
         type : Number,
         default : 1
+    },
+    params : {
+        type : String
     }
 },{
     timeseries: true,

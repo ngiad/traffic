@@ -5,7 +5,19 @@ const DOCUMENT_NAME = 'code'
 
 
 const codeShema = mongoose.Schema({
-
+    key : {
+        type : String,
+        required : true
+    },
+    code : {
+        type : String,
+        required : true
+    },
+    status : {
+        type : String,
+        enum : ['inactive',"active"],
+        default : 'inactive'
+    }
 },{
     timeseries: true,
     collection: COLLECTION_NAME
